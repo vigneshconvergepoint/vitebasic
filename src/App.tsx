@@ -9,7 +9,7 @@ function App() {
   return (
     <UiWrapper>
       <PortalCompatProvider>
-    <h1 className="grayColor600">hai</h1>
+    <h1 className="grayColor600">hai!</h1>
     <ul>
       <li><IconChevronRight/></li>
       <li><IconChevronLeft/></li>
