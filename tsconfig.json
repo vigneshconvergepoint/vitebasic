@@ -1,7 +1,11 @@
 {
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ]
+  "compilerOptions": {
+    "baseUrl": ".",  // Set the base directory to the project root
+    "paths": {
+      "@/*": ["src/*"]  // Map @ to src
+    },
+    "jsx": "react-jsx",  // JSX for React
+    "moduleResolution": "node"  // Standard module resolution
+  },
+  "include": ["src"]  // Include the src directory for type checking
 }
