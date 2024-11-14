@@ -36,5 +36,5 @@ msalInstance.addEventCallback((event) => {
 });
 
 export const getContext = () => {
-  return msalInstance;
+  return msalInstance
 }
