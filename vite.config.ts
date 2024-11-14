@@ -1,12 +1,20 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite';
+import path from 'path';
+import mkcert from 'vite-plugin-mkcert';
+import fetch from 'node-fetch';
 
-// https://vitejs.dev/config/
+(globalThis as any).fetch = fetch;
 export default defineConfig({
-  plugins: [react()],
+  plugins: [mkcert()],  // Automatically generates the certificate with vite-plugin-mkcert
+  server: {
+    https: {
+      key: undefined,
+      cert: undefined,  
+    },
+  },
   resolve: {
     alias: {
-      '@': '/src', // Make sure it's correctly pointing to the 'src' directory
+      '@': path.resolve(__dirname, 'src'),  // Path alias for your project
     }
   }
-})
+});

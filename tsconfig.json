@@ -9,7 +9,8 @@
       "@/*": ["src/*"]  // Map @ to src
     },
     "jsx": "react-jsx",  // JSX for React
-    "moduleResolution": "node"  // Standard module resolution
+    "moduleResolution": "node",  // Standard module resolution
+    "types": ["node"]
   },
   "include": ["src"]  // Include the src directory for type checking
 }
