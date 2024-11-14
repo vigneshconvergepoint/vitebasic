@@ -1,5 +1,5 @@
 // global
-import {IconChevronRight, IconChevronLeft, IconFolderOpen} from "@convergepoint/sass-icons";
+import {IconChevronRight, IconChevronLeft, IconFolderOpen, IconCreation, IconDashboard} from "@convergepoint/sass-icons";
 import { UiWrapper } from "@convergepoint/sass-ui-components";
 import { PortalCompatProvider } from "@fluentui/react-portal-compat";
 // local
@@ -13,6 +13,8 @@ function App() {
           <li><IconChevronRight/></li>
           <li><IconChevronLeft/></li>
           <li><IconFolderOpen/></li>
+          <li><IconCreation/></li>
+          <li><IconDashboard/></li>
         </ul>
     </PortalCompatProvider>
     </UiWrapper>
