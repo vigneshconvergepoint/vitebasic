@@ -10,7 +10,8 @@
     },
     "jsx": "react-jsx",  // JSX for React
     "moduleResolution": "node",  // Standard module resolution
-    "types": ["node"]
+    "types": ["node"],
+    "allowSyntheticDefaultImports": true,
   },
   "include": ["src"]  // Include the src directory for type checking
 }
