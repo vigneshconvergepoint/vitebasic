@@ -1,32 +1,33 @@
-
 // global
-import { useMsal } from "@azure/msal-react";
+import {
+  AuthenticatedTemplate,
+  MsalProvider,
+  UnauthenticatedTemplate,
+} from '@azure/msal-react';
+import { PortalCompatProvider } from '@fluentui/react-portal-compat';
 
-function Authenticated() {
- const { instance } = useMsal();
+// local
+import ErrorBoundary from '@/setup/app-context-manager/errorBoundary/index';
+import { getContext } from '@/setup/auth/auth.js';
+import Authenticated from '@/setup/auth/login/index';
+import Licenseportal from '@/setup/routes-manager/index';
+function AuthSetup() {
 
- const handleLogin =()=> {
-  let loginRequest = {
-   scopes: ["api://be333d12-1978-4e29-8653-d6c6ca1772e0/access_as_user","user.read","directory.read.all"]
-  };
+  return (
+    <MsalProvider instance={getContext()}>
+      <AuthenticatedTemplate>
+        <PortalCompatProvider>
+          <ErrorBoundary>
+            <Licenseportal />
+          </ErrorBoundary>
+        </PortalCompatProvider>
+      </AuthenticatedTemplate>
 
-   try{
-      instance.loginRedirect(loginRequest).then((_) => {
-        console.log(_,"loginsuccess");
-      }).catch(e => {
-      console.error(e,"loginerror");
-      })
-    }catch(err){
-     console.error(err,"loginerror")
-    }
- }
-
-
-return (
-  <div className="align-items-center d-flex h-100vh justify-content-center mt-4">
-    <button className="cursor-pointer" onClick={handleLogin}>Sign Up</button>
-  </div>
-)
+      <UnauthenticatedTemplate>
+        <Authenticated />
+      </UnauthenticatedTemplate>
+    </MsalProvider>
+  );
 }
 
-export default Authenticated;
+export default AuthSetup;

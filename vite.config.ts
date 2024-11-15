@@ -5,16 +5,16 @@ import fetch from 'node-fetch';
 
 (globalThis as any).fetch = fetch;
 export default defineConfig({
-  plugins: [mkcert()],  // Automatically generates the certificate with vite-plugin-mkcert
+  plugins: [mkcert()], // Automatically generates the certificate with vite-plugin-mkcert
   server: {
     https: {
       key: undefined,
-      cert: undefined,  
+      cert: undefined,
     },
   },
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, 'src'),  // Path alias for your project
-    }
-  }
+      '@': path.resolve(__dirname, 'src'), // Path alias for your project
+    },
+  },
 });

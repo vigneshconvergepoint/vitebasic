@@ -1,11 +1,5 @@
-
-
 function Index() {
-  return (
-    <div>
-      hai from license
-    </div>
-  )
+  return <div>hai from license</div>;
 }
 
-export default Index
+export default Index;
