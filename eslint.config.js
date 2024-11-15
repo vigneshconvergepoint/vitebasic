@@ -1,34 +1,37 @@
-// eslint.config.js or .eslintrc.js
+// eslint.config.js
 
-import eslintPluginReact from 'eslint-plugin-react';
-import eslintPluginPrettier from 'eslint-plugin-prettier';
-import { ESLint } from 'eslint'; // ESLint itself
-import typescriptParser from '@typescript-eslint/parser';
+import { ESLint } from 'eslint'; // Import ESLint if needed
+import typescriptParser from '@typescript-eslint/parser'; // TypeScript parser
+import eslintPluginReact from 'eslint-plugin-react'; // React plugin
+import eslintPluginPrettier from 'eslint-plugin-prettier'; // Prettier plugin
 
-export default {
-  parser: typescriptParser, // Use the TypeScript parser (required for TypeScript)
-  parserOptions: {
-    ecmaVersion: 2020,
-    sourceType: 'module', // Enable ECMAScript modules
-    ecmaFeatures: {
-      jsx: true, // Enable JSX parsing
+/** @type {import('eslint').Linter.Config} */
+export default [
+  {
+    parser: typescriptParser, // Use the TypeScript parser
+    parserOptions: {
+      ecmaVersion: 2020,
+      sourceType: 'module',
+      ecmaFeatures: {
+        jsx: true, // Enable JSX parsing
+      },
+    },
+    plugins: {
+      react: eslintPluginReact,
+      prettier: eslintPluginPrettier,
+      '@typescript-eslint': 'typescript-eslint', // Ensure you are using the right plugin name
+    },
+    extends: [
+      'eslint:recommended', // Basic ESLint recommendations
+      'plugin:react/recommended', // React specific linting rules
+      'plugin:prettier/recommended', // Prettier integration
+      'plugin:@typescript-eslint/recommended', // TypeScript specific linting rules
+    ],
+    rules: {
+      'prettier/prettier': 'error', // Enforce Prettier formatting
+      'react/prop-types': 'off', // Disable prop-types for TypeScript
+      '@typescript-eslint/no-unused-vars': 'warn', // TypeScript unused vars
+      '@typescript-eslint/explicit-module-boundary-types': 'off', // Optional rule
     },
   },
-  extends: [
-    'eslint:recommended',
-    'plugin:react/recommended',
-    'plugin:prettier/recommended', // Prettier integration
-    'plugin:@typescript-eslint/recommended', // TypeScript specific linting
-  ],
-  plugins: {
-    react: eslintPluginReact,
-    prettier: eslintPluginPrettier,
-    '@typescript-eslint': '@typescript-eslint/eslint-plugin', // TypeScript plugin
-  },
-  rules: {
-    'prettier/prettier': 'error', // Enforce Prettier formatting rules
-    'react/prop-types': 'off',  // Disable prop-types for TypeScript projects
-    '@typescript-eslint/no-unused-vars': 'warn', // Handle unused vars in TypeScript
-    '@typescript-eslint/explicit-module-boundary-types': 'off', // Disable boundary types (optional)
-  },
-};
+];
