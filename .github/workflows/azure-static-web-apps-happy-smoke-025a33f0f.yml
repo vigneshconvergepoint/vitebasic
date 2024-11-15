@@ -26,25 +26,47 @@ jobs:
         run: |
           echo "//npm.pkg.github.com/:_authToken=${{ secrets.NPM_AUTH_TOKEN }}" > ~/.npmrc
 
-      # Step 3: Install dependencies
+      # Step 3: Set up Node.js environment (specific version)
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16" # or specify your Node.js version
+
+      # Step 4: Cache node modules for faster builds
+      - name: Cache node modules
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-modules-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-modules-
+
+      # Step 5: Install dependencies
       - name: Install dependencies
         run: npm install
 
-      # Step 4: Run ESLint and Prettier
-      - name: Run ESLint and Prettier
+      # Step 6: Run ESLint
+      - name: Run ESLint
         run: |
-          # Run ESLint with --fix to automatically fix issues
           npx eslint . --fix --max-warnings=0
+        continue-on-error: false # Ensure build fails on linting errors
 
-          # Run Prettier with --write to automatically format files
+      # Optional Step: Run Prettier check to ensure code is formatted
+      - name: Run Prettier Check
+        run: |
+          npx prettier --check .
+
+      # Step 7: Run Prettier (auto-formatting files)
+      - name: Run Prettier
+        run: |
           npx prettier --write .
 
-      # Step 5: Build the app
+      # Step 8: Build the app
       - name: Build the app
         run: npm run build
 
-      # Step 6: Deploy the app to Azure Static Web App
-      - name: Build And Deploy
+      # Step 9: Deploy the app to Azure Static Web App
+      - name: Build and Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
         with:
