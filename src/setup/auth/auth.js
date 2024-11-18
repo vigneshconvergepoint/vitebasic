@@ -16,7 +16,6 @@ const msalConfig = {
 };
 
 const msalInstance = new PublicClientApplication(msalConfig);
-let ACCESS_TOKEN = null;
 if (
   !msalInstance.getActiveAccount() &&
   msalInstance.getAllAccounts().length > 0
@@ -31,7 +30,6 @@ msalInstance.addEventCallback((event) => {
     event.payload.account
   ) {
     msalInstance.setActiveAccount(event.payload.account);
-    ACCESS_TOKEN = event.payload.accessToken;
   }
 });
 

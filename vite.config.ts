@@ -1,7 +1,6 @@
 import { defineConfig } from 'vite';
 import path from 'path';
 import mkcert from 'vite-plugin-mkcert';
-import fetch from 'node-fetch';
 
 (globalThis as any).fetch = fetch;
 export default defineConfig({

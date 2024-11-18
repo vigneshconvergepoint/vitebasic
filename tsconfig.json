@@ -1,17 +1,26 @@
 {
   "compilerOptions": {
     "target": "ES2020",
-    "lib": ["es2020", "dom"],
+    "lib": [
+      "es2020",
+      "dom"
+    ],
     "module": "ESNext",
     "strict": true,
     "baseUrl": ".", // Set the base directory to the project root
     "paths": {
-      "@/*": ["src/*"] // Map @ to src
+      "@/*": [
+        "src/*"
+      ] // Map @ to src
     },
     "jsx": "react-jsx", // JSX for React
     "moduleResolution": "node", // Standard module resolution
-    "types": ["node"],
-    "allowSyntheticDefaultImports": true
+    "types": [
+      "node"
+    ],
+    "allowSyntheticDefaultImports": true,
   },
-  "include": ["src"] // Include the src directory for type checking
+  "include": [
+    "src"
+  ] // Include the src directory for type checking
 }
