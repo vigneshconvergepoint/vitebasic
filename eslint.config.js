@@ -1,28 +1,28 @@
-// eslint.config.js
+import js from '@eslint/js'
+import globals from 'globals'
+import reactHooks from 'eslint-plugin-react-hooks'
+import reactRefresh from 'eslint-plugin-react-refresh'
+import tseslint from 'typescript-eslint'
 
-import typescriptParser from '@typescript-eslint/parser'; // Use ES modules
-const config = {
-  parser: typescriptParser,
-  parserOptions: {
-    ecmaVersion: 2020,
-    sourceType: 'module',
-    ecmaFeatures: {
-      jsx: true,
+export default tseslint.config(
+  { ignores: ['dist'] },
+  {
+    extends: [js.configs.recommended, ...tseslint.configs.recommended],
+    files: ['**/*.{ts,tsx}'],
+    languageOptions: {
+      ecmaVersion: 2020,
+      globals: globals.browser,
+    },
+    plugins: {
+      'react-hooks': reactHooks,
+      'react-refresh': reactRefresh,
+    },
+    rules: {
+      ...reactHooks.configs.recommended.rules,
+      'react-refresh/only-export-components': [
+        'warn',
+        { allowConstantExport: true },
+      ],
     },
   },
-  plugins: ['react', 'prettier', '@typescript-eslint'],
-  extends: [
-    'eslint:recommended',
-    'plugin:react/recommended',
-    'plugin:prettier/recommended',
-    'plugin:@typescript-eslint/recommended',
-  ],
-  rules: {
-    'prettier/prettier': 'error',
-    'react/prop-types': 'off',
-    '@typescript-eslint/no-unused-vars': 'warn',
-    '@typescript-eslint/explicit-module-boundary-types': 'off',
-  },
-};
-
-export default config;
+)

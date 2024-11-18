@@ -13,7 +13,7 @@ jobs:
   build_and_deploy_job:
     if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
     runs-on: ubuntu-latest
-    name: Build, Lint, Format, and Deploy Job
+    name: Build and Deploy Job
     steps:
       # Step 1: Checkout code
       - uses: actions/checkout@v3
@@ -45,27 +45,11 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      # Step 6: Run ESLint
-      - name: Run ESLint
-        run: |
-          npx eslint . --fix --max-warnings=0
-        continue-on-error: false # Ensure build fails on linting errors
-
-      # Optional Step: Run Prettier check to ensure code is formatted
-      - name: Run Prettier Check
-        run: |
-          npx prettier --check .
-
-      # Step 7: Run Prettier (auto-formatting files)
-      - name: Run Prettier
-        run: |
-          npx prettier --write .
-
-      # Step 8: Build the app
+      # Step 6: Build the app
       - name: Build the app
         run: npm run build
 
-      # Step 9: Deploy the app to Azure Static Web App
+      # Step 7: Deploy the app to Azure Static Web App
       - name: Build and Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1

@@ -2,7 +2,7 @@ import { defineConfig } from 'vite';
 import path from 'path';
 import mkcert from 'vite-plugin-mkcert';
 
-(globalThis as any).fetch = fetch;
+(globalThis as { fetch: typeof fetch }).fetch = fetch;
 export default defineConfig({
   plugins: [mkcert()], // Automatically generates the certificate with vite-plugin-mkcert
   server: {
