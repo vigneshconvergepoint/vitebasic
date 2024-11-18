@@ -4,7 +4,6 @@ import {
   MsalProvider,
   UnauthenticatedTemplate,
 } from '@azure/msal-react';
-import { PortalCompatProvider } from '@fluentui/react-portal-compat';
 
 // local
 import ErrorBoundary from '@/setup/app-context-manager/errorBoundary/index';
@@ -16,11 +15,9 @@ function AuthSetup() {
   return (
     <MsalProvider instance={getContext()}>
       <AuthenticatedTemplate>
-        <PortalCompatProvider>
-          <ErrorBoundary>
-            <Licenseportal />
-          </ErrorBoundary>
-        </PortalCompatProvider>
+        <ErrorBoundary>
+          <Licenseportal />
+        </ErrorBoundary>
       </AuthenticatedTemplate>
 
       <UnauthenticatedTemplate>
