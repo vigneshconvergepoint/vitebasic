@@ -1,9 +1,9 @@
-import { defineConfig } from 'eslint'; // Import ESLint to define config
-import typescriptParser from '@typescript-eslint/parser'; // TypeScript parser
-import eslintPluginReact from 'eslint-plugin-react'; // React plugin
-import eslintPluginPrettier from 'eslint-plugin-prettier'; // Prettier plugin
+// eslint.config.js
+const typescriptParser = require('@typescript-eslint/parser'); // TypeScript parser
+const eslintPluginReact = require('eslint-plugin-react'); // React plugin
+const eslintPluginPrettier = require('eslint-plugin-prettier'); // Prettier plugin
 
-export default defineConfig({
+module.exports = {
   languageOptions: {
     parser: typescriptParser, // Use the TypeScript parser
     parserOptions: {
@@ -31,4 +31,4 @@ export default defineConfig({
     '@typescript-eslint/no-unused-vars': 'warn', // TypeScript unused vars
     '@typescript-eslint/explicit-module-boundary-types': 'off', // Optional rule
   },
-});
+};
