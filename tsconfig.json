@@ -19,6 +19,9 @@
       "node"
     ],
     "allowSyntheticDefaultImports": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "noImplicitAny": false
   },
   "include": [
     "src"
