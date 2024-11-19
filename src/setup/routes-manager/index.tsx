@@ -2,12 +2,12 @@
 import * as React from "react";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { makeStyles } from "@fluentui/react-components";
-import { IconDashboard, IconCreation } from "@convergepoint/sass-icons";
+import { IconReport, IconHome } from "@convergepoint/sass-icons";
 import { Navigation } from '@convergepoint/sass-navigation'
 
 const MainMenus: any = [
-  { menu: "Home", icon: <IconDashboard />, key: "Home", pageUrl: "/" },
-  { menu: "Reports", icon: <IconCreation />, key: "Home", pageUrl: "/Reports" },
+  { menu: "Home", icon: <IconHome />, key: "Home", pageUrl: "/" },
+  { menu: "Reports", icon: <IconReport />, key: "Reports", pageUrl: "/Reports" },
 ];
 
 const useTotalWidth = makeStyles({
@@ -44,9 +44,8 @@ function Licenseportal() {
           <div className="grayBg100 p-1 position-relative">
             <Routes>
               <Route path="/" element={"Home"}></Route>
-            </Routes>
-            <Routes>
               <Route path="/Reports" element={"Reports"}></Route>
+              <Route path="/Administration" element={"Administration"}></Route>
             </Routes>
           </div>
         </div>

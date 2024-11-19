@@ -13,9 +13,9 @@
   "dependencies": {
     "@azure/msal-browser": "^3.27.0",
     "@azure/msal-react": "^2.2.0",
-    "@convergepoint/sass-icons": "^0.0.7",
-    "@convergepoint/sass-navigation": "^0.0.0",
-    "@convergepoint/sass-ui-components": "^0.0.10",
+    "@convergepoint/sass-icons": "^0.0.8",
+    "@convergepoint/sass-navigation": "^0.0.2",
+    "@convergepoint/sass-ui-components": "^0.0.11",
     "@fluentui/react-components": "^9.56.2",
     "@fluentui/react-portal-compat": "^9.0.70",
     "react": "^18.3.1",
