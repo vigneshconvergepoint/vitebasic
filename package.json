@@ -13,11 +13,13 @@
   "dependencies": {
     "@azure/msal-browser": "^3.27.0",
     "@azure/msal-react": "^2.2.0",
-    "@convergepoint/sass-icons": "^0.0.8",
-    "@convergepoint/sass-navigation": "^0.0.3",
-    "@convergepoint/sass-ui-components": "^0.0.11",
+    "@convergepoint/sass-icons": "^0.0.9",
+    "@convergepoint/sass-navigation": "^0.0.4",
+    "@convergepoint/sass-ui-components": "^0.0.12",
+    "@fluentui/react": "^8.121.12",
     "@fluentui/react-components": "^9.56.2",
-    "@fluentui/react-portal-compat": "^9.0.70",
+    "@fluentui/react-icons": "^2.0.245",
+    "@fluentui/react-portal-compat": "^9.0.170",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.28.0"
