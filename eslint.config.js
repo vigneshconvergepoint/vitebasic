@@ -28,6 +28,7 @@ export default tseslint.config(
       "no-undef": "off",
       'no-unused-vars': "off",
       'react-hooks/exhaustive-deps': 'off',
+      "no-nested-ternary": "off"
     },
   },
 )

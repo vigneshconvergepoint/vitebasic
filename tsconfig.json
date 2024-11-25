@@ -23,6 +23,7 @@
     "noUnusedParameters": false,
     "noImplicitAny": false,
     "skipLibCheck": true,
+    "strictNullChecks": false
   },
   "include": [
     "src"

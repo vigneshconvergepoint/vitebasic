@@ -2,10 +2,12 @@
 import * as React from "react";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { makeStyles } from "@fluentui/react-components";
-import { IconReport, IconHome } from "@convergepoint/sass-icons";
+// import { IconReport, IconHome } from "@convergepoint/sass-icons";
+import { IconReport, IconHome } from "@convergepoint/icons";
 import { Navigation, TopNavBar } from '@convergepoint/sass-navigation';
 import { useMsal } from "@azure/msal-react";
 // local
+import Home from "@/pages/homepage/index";
 
 const MainMenus: any = [
   { menu: "Home", icon: <IconHome />, key: "Home", pageUrl: "/" },
@@ -44,7 +46,7 @@ function Licenseportal() {
 
   return (
     <BrowserRouter>
-      <div className="d-flex">
+      <main className="d-flex">
         <Navigation
           onChangeExpand={setExpanded}
           MainMenus={MainMenus}
@@ -58,13 +60,13 @@ function Licenseportal() {
           />
           <div className="grayBg100 p-1 position-relative">
             <Routes>
-              <Route path="/" element={"Home"}></Route>
+              <Route path="/" element={<Home />}></Route>
               <Route path="/Reports" element={"Reports"}></Route>
               <Route path="/Administration" element={"Administration"}></Route>
             </Routes>
           </div>
         </div>
-      </div>
+      </main>
     </BrowserRouter>
   );
 }
