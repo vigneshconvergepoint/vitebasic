@@ -15,7 +15,7 @@
     "@azure/msal-react": "^2.2.0",
     "@convergepoint/icons": "^1.0.26",
     "@convergepoint/sass-navigation": "^0.0.4",
-    "@convergepoint/sass-ui-components": "^0.0.13",
+    "@convergepoint/sass-ui-components": "^0.0.14",
     "@fluentui/react": "^8.121.12",
     "@fluentui/react-components": "^9.56.2",
     "@fluentui/react-icons": "^2.0.245",

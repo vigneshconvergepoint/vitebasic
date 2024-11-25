@@ -84,14 +84,12 @@
 
 .turncate-2 {
     display: -webkit-box;
-    -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
 
 .turncate-1 {
     display: -webkit-box;
-    -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
@@ -157,4 +155,7 @@
 
 .heading {
     font-size: 20px !important;
+}
+.br-1{
+    border-right: 1px solid var(--grayColor450)
 }

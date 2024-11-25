@@ -58,7 +58,7 @@ function Licenseportal() {
             userName={accounts[0].name}
             logout={handleLogoutPopup}
           />
-          <div className="grayBg100 p-1 position-relative">
+          <div className="grayBg100 position-relative">
             <Routes>
               <Route path="/" element={<Home />}></Route>
               <Route path="/Reports" element={"Reports"}></Route>

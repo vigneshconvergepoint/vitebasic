@@ -5,6 +5,7 @@ import { Button } from "@convergepoint/sass-ui-components";
 import { IconAdd } from '@convergepoint/icons';
 // local
 import { WorkFlowHistory } from './components/workflowhistory/index';
+import { LicenseDetails } from '@convergepoint/sass-ui-components';
 
 const AdminLayoutClass = makeStyles({
     root: {
@@ -65,6 +66,7 @@ function Home() {
                     {showDashboard &&
                         <div className="mt-4">
                             <WorkFlowHistory />
+                            <LicenseDetails/>
                         </div>
                     }
                 </div>
